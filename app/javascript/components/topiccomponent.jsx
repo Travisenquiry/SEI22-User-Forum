@@ -36,7 +36,7 @@ export default class Topiccomponent extends React.Component {
           {this.state.topics.map((topic, index) => (
             <div key={index}>
               {topic.title}
-              {topic.url}
+              {topic.image_url}
             </div>
           ))}
         </InfiniteScroll>
