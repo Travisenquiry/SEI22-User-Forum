@@ -33,14 +33,6 @@ export default class Communitycomponent extends React.Component {
   }
 
   render(){
-      /*const communities = this.state.communities.map((filteredCommunity, index)=>{
-      let dbIndex = index + 1;
-      //let link = "/onepage/" + String(dbIndex);
-      //<!-- <a href={link}>Show</a>
-      return (<div>
-        <p>{filteredCommunity.title}</p>
-      </div>);
-    });*/
     let communities = this.state.communities;
     return(
       <div>
@@ -55,7 +47,6 @@ export default class Communitycomponent extends React.Component {
             </div>
           ))}
         </InfiniteScroll>
-
       </div>
     );
   }
