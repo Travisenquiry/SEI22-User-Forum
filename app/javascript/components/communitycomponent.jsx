@@ -10,7 +10,6 @@ export default class Communitycomponent extends React.Component {
     }
     const url = '/communities.json'
     axios.get(url).then((response) =>{
-      console.log(response.data);
       const data = response.data;
       this.setState({ communities: data})
     }).catch((error)=>{
