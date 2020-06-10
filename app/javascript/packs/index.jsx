@@ -5,9 +5,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
+import Communitycomponent from '../components/communitycomponent'
 
 const Index = props => (
-  <div>Index here</div>
+  <div>
+    <Communitycomponent />
+  </div>
 )
 
 document.addEventListener('DOMContentLoaded', () => {
