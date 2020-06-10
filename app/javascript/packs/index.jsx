@@ -8,8 +8,15 @@ import PropTypes from 'prop-types'
 import Communitycomponent from '../components/communitycomponent'
 
 const Index = props => (
-  <div>
-    <Communitycomponent />
+  <div className="container">
+    <div className="row">
+      <div className="col s8">
+      hello
+      </div>
+      <div className="col s4 offset-s8" style={{position: "absolute"}}>
+        <Communitycomponent />
+      </div>
+    </div>
   </div>
 )
 
