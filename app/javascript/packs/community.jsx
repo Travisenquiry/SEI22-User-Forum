@@ -6,12 +6,13 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import Communitycomponent from '../components/communitycomponent'
+import Topiccomponent from '../components/topiccomponent'
 
 const Community = props => (
   <div className="container">
     <div className="row">
       <div className="col s8">
-      hello
+        <Topiccomponent />
       </div>
       <div className="col s3 offset-s6" style={{position: "fixed"}}>
         <Communitycomponent />

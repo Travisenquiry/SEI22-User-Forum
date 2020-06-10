@@ -8,13 +8,28 @@ export default class Topiccomponent extends React.Component {
     this.state = {
       topics: []
     }
-    const url = '/topics.json'
-    axios.get(url).then((response) =>{
-      const data = response.data;
-      this.setState({ topics: data})
-    }).catch((error)=>{
-      console.log(error);
-    })
+    if(document.getElementById('community-id').data == null){
+      const url = '/topics.json'
+      axios.get(url).then((response) =>{
+        const data = response.data;
+        this.setState({ topics: data})
+      }).catch((error)=>{
+        console.log(error);
+      })
+    }else {
+      const url = '/topics.json'
+      axios.get(url).then((response) =>{
+        const data = response.data;
+        let search = document.getElementById("community-id").id;
+        console.log(search);
+        let filteredData = data.filter(filtered => {
+          return filtered.id === search;
+        });
+        this.setState({ topics: filteredData})
+      }).catch((error)=>{
+        console.log(error);
+      })
+    }
   }
 
   render(){
