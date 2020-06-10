@@ -26,14 +26,9 @@
     <%= form.text_field :url %>
   </div>
 
-  <div class="field">
+  <div class="field" style="display: none">
     <%= form.label :community %>
-    <%= form.text_field :community %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user %>
-    <%= form.text_field :user %>
+    <%= form.text_field :community_id, value: @id %>
   </div>
 
   <div class="actions">
