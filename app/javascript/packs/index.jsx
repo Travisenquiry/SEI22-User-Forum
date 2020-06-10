@@ -13,7 +13,7 @@ const Index = props => (
       <div className="col s8">
       hello
       </div>
-      <div className="col s4 offset-s8" style={{position: "absolute"}}>
+      <div className="col s3 offset-s6" style={{position: "fixed"}}>
         <Communitycomponent />
       </div>
     </div>
