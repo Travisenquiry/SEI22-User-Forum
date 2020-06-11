@@ -8,7 +8,8 @@ export default class Topiccomponent extends React.Component {
     this.state = {
       topics: []
     }
-    if(document.getElementById('community-id').data == null){
+    let communityId = JSON.parse(document.getElementById('community-id').getAttribute('data'));
+    if(communityId === null){
       const url = '/topics.json'
       axios.get(url).then((response) =>{
         const data = response.data;
@@ -20,10 +21,12 @@ export default class Topiccomponent extends React.Component {
       const url = '/topics.json'
       axios.get(url).then((response) =>{
         const data = response.data;
-        let search = document.getElementById("community-id").id;
-        console.log(search);
+        let search = document.getElementById("community-id");
+        let communityData = JSON.parse(search.getAttribute('data'));
+        console.log(data);
         let filteredData = data.filter(filtered => {
-          return filtered.id === search;
+          console.log(filtered);
+          return filtered.community.id === communityData.id;
         });
         this.setState({ topics: filteredData})
       }).catch((error)=>{
@@ -43,7 +46,6 @@ export default class Topiccomponent extends React.Component {
           {this.state.topics.map((topic, index) => (
             <div key={index}>
               {topic.title}
-              {topic.image_url}
             </div>
           ))}
         </InfiniteScroll>
