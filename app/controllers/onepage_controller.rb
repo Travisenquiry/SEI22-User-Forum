@@ -14,4 +14,10 @@ class OnepageController < ApplicationController
       redirect_to "/"
     end
   end
+
+  def topic
+    @current_page = "topic"
+    render 'index'
+  end
+
 end
