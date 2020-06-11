@@ -25,7 +25,6 @@ export default class Topiccomponent extends React.Component {
         let communityData = JSON.parse(search.getAttribute('data'));
         console.log(data);
         let filteredData = data.filter(filtered => {
-          console.log(filtered);
           return filtered.community.id === communityData.id;
         });
         this.setState({ topics: filteredData})
@@ -41,19 +40,30 @@ export default class Topiccomponent extends React.Component {
     let search = document.getElementById("community-id");
     let communityData = JSON.parse(search.getAttribute('data'));
     let title;
+    let topicList;
+    let topicLink;
     if(communityData === null){
       title = "Index";
+      topicList = this.state.topics.map((topic, index) => {
+        topicLink = "/community/" + topic.community.id + "/topics/" + topic.id;
+        console.log(topic);
+        return (
+          <div key={index}>
+            <a href={topicLink}>{topic.title}</a>
+          </div>
+        )
+      });
     }else {
       title = communityData.title;
+      topicList = this.state.topics.map((topic, index) => {
+        topicLink = "/community/" + topic.community.id + "/topics/" + topic.id;
+        return (
+          <div key={index}>
+            <a href={topicLink}>{topic.title}</a>
+          </div>
+        )
+      });
     }
-    let topicList = this.state.topics.map((topic, index) => {
-      let topicLink = "/community/" + communityData.id + "/topics/" + topic.id;
-      return (
-        <div key={index}>
-          <a href={topicLink}>{topic.title}</a>
-        </div>
-      )
-    });
     return(
       <div>
         <div><h5>{title}</h5></div>
