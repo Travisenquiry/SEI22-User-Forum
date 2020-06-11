@@ -5,51 +5,26 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 export default class Topiccomponent extends React.Component {
   constructor(props){
     super(props);
-    this.state = {
-      topics: []
-    }
-    let communityId = JSON.parse(document.getElementById('community-id').getAttribute('data'));
-    if(communityId === null){
-      const url = '/topics.json'
-      axios.get(url).then((response) =>{
-        const data = response.data;
-        this.setState({ topics: data})
-      }).catch((error)=>{
-        console.log(error);
-      })
-    }else {
-      const url = '/topics.json'
-      axios.get(url).then((response) =>{
-        const data = response.data;
-        let search = document.getElementById("community-id");
-        let communityData = JSON.parse(search.getAttribute('data'));
-        console.log(data);
-        let filteredData = data.filter(filtered => {
-          console.log(filtered);
-          return filtered.community.id === communityData.id;
-        });
-        this.setState({ topics: filteredData})
-      }).catch((error)=>{
-        console.log(error);
-      })
-    }
+
   }
 
 
   render(){
-    let topics = this.state.topics;
-    let search = document.getElementById("community-id");
-    let communityData = JSON.parse(search.getAttribute('data'));
-    let title;
-    if(communityData === null){
-      title = "Index";
-    }else {
-      title = communityData.title;
-    }
+    let topicGrab = document.getElementById("topic-id");
+    let topicData = JSON.parse(topicGrab.getAttribute('data'));
+    let userGrab = document.getElementById("user-name");
+    let postedUser = JSON.parse(userGrab.getAttribute('data'));
     return(
       <div>
-
-      </div>
+          <div id="topic-title">
+            <h5>{topicData.title}</h5>
+          </div>
+          <div id="topic-content">
+            <h6>By: {postedUser[0].username}</h6>
+            <img src={topicData.image_url} alt=""></img>
+            <p>{topicData.content}</p>
+          </div>
+        </div>
     );
   }
 }

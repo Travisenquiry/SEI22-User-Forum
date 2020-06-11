@@ -46,17 +46,21 @@ export default class Topiccomponent extends React.Component {
     }else {
       title = communityData.title;
     }
+    let topicList = this.state.topics.map((topic, index) => {
+      let topicLink = "/community/" + communityData.id + "/topics/" + topic.id;
+      return (
+        <div key={index}>
+          <a href={topicLink}>{topic.title}</a>
+        </div>
+      )
+    });
     return(
       <div>
         <div><h5>{title}</h5></div>
         <InfiniteScroll
           dataLength={this.state.topics.length}
         >
-          {this.state.topics.map((topic, index) => (
-            <div key={index}>
-              {topic.title}
-            </div>
-          ))}
+          {topicList}
         </InfiniteScroll>
       </div>
     );

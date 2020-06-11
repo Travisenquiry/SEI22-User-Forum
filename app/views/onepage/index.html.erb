@@ -3,6 +3,16 @@
   data: @community.to_json do %>
 <% end %>
 
+<%= content_tag :div,
+  id: "topic-id",
+  data: @topic.to_json do %>
+<% end %>
+
+<%= content_tag :div,
+  id: "user-name",
+  data: @user_posted.to_json do %>
+<% end %>
+
 <% case @current_page %>
 	<% when "index" %>
 		<%= javascript_pack_tag 'index' %>

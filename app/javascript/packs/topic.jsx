@@ -5,13 +5,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
-import Communitycomponent from '../components/communitycomponent'
-import Topiccomponent from '../components/topiccomponent'
+import Contentcomponent from '../components/contentcomponent'
 
 const Topic = props => (
   <div className="container">
     <div className="row">
-      hello
+      <Contentcomponent />
     </div>
   </div>
 )

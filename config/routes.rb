@@ -4,9 +4,10 @@ Rails.application.routes.draw do
   get 'community/:id/topics/new' => 'topics#new'
   get 'community/:id/topics/:topic_id' => 'onepage#topic'
   get 'community/:id' => 'onepage#community'
-  root 'onepage#index'
   resources :communities
   devise_for :users, :controllers => { registrations: 'registrations' }
+  root 'onepage#index'
+
   match ':not_found' => redirect('/'), :via => [:get],
   :constraints => { :not_found => /.*/ }
 
