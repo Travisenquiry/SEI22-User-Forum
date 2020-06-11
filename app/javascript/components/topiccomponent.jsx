@@ -38,9 +38,17 @@ export default class Topiccomponent extends React.Component {
 
   render(){
     let topics = this.state.topics;
+    let search = document.getElementById("community-id");
+    let communityData = JSON.parse(search.getAttribute('data'));
+    let title;
+    if(communityData === null){
+      title = "Index";
+    }else {
+      title = communityData.title;
+    }
     return(
       <div>
-        <div><h5>Topics</h5></div>
+        <div><h5>{title}</h5></div>
         <InfiniteScroll
           dataLength={this.state.topics.length}
         >

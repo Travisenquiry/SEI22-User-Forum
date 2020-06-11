@@ -33,7 +33,14 @@ export default class Communitycomponent extends React.Component {
   }
 
   render(){
-    let communities = this.state.communities;
+    let communities = this.state.communities.map((community, index) => {
+      let link = "/community/" + String(community.id);
+      return(
+        <div key={index}>
+          <a href={link}>{community.title}</a>
+        </div>
+      );
+    });
     return(
       <div>
         <div><h5>Community List</h5></div>
@@ -41,11 +48,7 @@ export default class Communitycomponent extends React.Component {
         <InfiniteScroll
           dataLength={this.state.communities.length}
         >
-          {this.state.communities.map((community, index) => (
-            <div key={index}>
-              {community.title}
-            </div>
-          ))}
+          {communities}
         </InfiniteScroll>
       </div>
     );
