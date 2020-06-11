@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :topics
   get 'index' => 'onepage#index'
   get 'community/:id/topics/new' => 'topics#new'
+  get 'community/:id/topics/:topic_id' => 'onepage#topic'
   get 'community/:id' => 'onepage#community'
   root 'onepage#index'
   resources :communities
