@@ -7,12 +7,14 @@ import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import Contentcomponent from '../components/contentcomponent'
 import Commentboxcomponent from '../components/commentboxcomponent'
+import Commentscomponent from '../components/commentscomponent'
 
 const Topic = props => (
   <div className="container">
     <div className="row">
       <Contentcomponent />
       <Commentboxcomponent />
+      <Commentscomponent />
     </div>
   </div>
 )
