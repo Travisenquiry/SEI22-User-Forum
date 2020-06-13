@@ -11,7 +11,7 @@ export default class Communitycomponent extends React.Component {
     const url = '/communities.json'
     axios.get(url).then((response) =>{
       const data = response.data;
-      this.setState({ communities: data})
+      this.setState({ communities: data.sort((a, b) => a.title.localeCompare(b.title))})
     }).catch((error)=>{
       console.log(error);
     })
@@ -45,11 +45,9 @@ export default class Communitycomponent extends React.Component {
       <div>
         <div><h5>Community List</h5></div>
         <div><input id="name-input" onKeyDown={()=>{ this.getCommunities() }} placeholder="Search"></input></div>
-        <InfiniteScroll
-          dataLength={this.state.communities.length}
-        >
+        <div style={{ height: 100, overflow: "auto" }}>
           {communities}
-        </InfiniteScroll>
+        </div>
       </div>
     );
   }
