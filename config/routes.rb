@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   resources :topics
   get 'index' => 'onepage#index'
   get 'community/new' => 'communities#new'
