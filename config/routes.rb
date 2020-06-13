@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   resources :topics
   get 'index' => 'onepage#index'
+  get 'community/new' => 'communities#new'
   get 'community/:id/topics/new' => 'topics#new'
   get 'community/:id/topics/:topic_id' => 'onepage#topic'
   get 'community/:id' => 'onepage#community'
-  get 'community/new' => 'communities#new'
+
   resources :communities
   devise_for :users, :controllers => { registrations: 'registrations' }
   root 'onepage#index'
