@@ -1,5 +1,27 @@
-<h1>New Topic</h1>
+<div class="container">
+	<h1>New Topic</h1>
 
-<%= render 'form', topic: @topic %>
+	<%= render 'form', topic: @topic %>
 
-<%= link_to 'Back', topics_path %>
+	<%= link_to 'Back', topics_path %>
+</div>
+
+<script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+<script type="text/javascript">
+  var myWidget = cloudinary.createUploadWidget({
+    cloudName: 'travisenquiry',
+    uploadPreset: 'aheccwh1'}, (error, result) => {
+      if (!error && result && result.event === "success") {
+        myWidget.close();
+        document.getElementById("image_after_upload").innerHTML = result.info.url;
+        document.getElementById("upload_widget").style.display = "none";
+        document.getElementById("submit_button").style.visibility = "visible";
+        document.getElementById("image_after_upload").style.visibility = "visible";
+      }
+    }
+  )
+
+  document.getElementById("upload_widget").addEventListener("click", function(){
+      myWidget.open();
+    }, false);
+</script>

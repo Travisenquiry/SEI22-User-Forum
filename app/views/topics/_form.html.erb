@@ -21,9 +21,10 @@
     <%= form.text_area :content %>
   </div>
 
-  <div class="field">
-    <%= form.label :image_url %>
-    <%= form.text_field :image_url %>
+  <div>
+  	<div>Image link</div>
+    <button type="button" id="upload_widget" class="cloudinary-button">Upload files</button>
+	  <%= form.text_area :image_url, :readonly => true, :id => "image_after_upload", :style => "visibility: hidden" %>
   </div>
 
   <div class="field" style="display: none">
