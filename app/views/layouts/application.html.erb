@@ -4,12 +4,21 @@
     <title>Sei22UserForum</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
-    <%= javascript_pack_tag 'application' %>
+    <%= javascript_pack_tag 'application'%>
+    <%= javascript_include_tag 'applications' %>
   </head>
 
   <body>
-    <%= yield %>
+  	<div class="container">
+	  	<nav>
+		    <div class="nav-wrapper">
+		      <a href="/" class="brand-logo center"> <i class="material-icons">hot_tub</i>Rabbit</a>
+		    </div>
+		  </nav>
+	    <%= yield %>
+	  </div>
   </body>
 </html>
