@@ -58,6 +58,7 @@ export default class Topiccomponent extends React.Component {
     let search = document.getElementById("community-id");
     let communityData = JSON.parse(search.getAttribute('data'));
     let title;
+    let newTopicLink;
     let description;
     let topicList;
     let topicLink;
@@ -68,6 +69,7 @@ export default class Topiccomponent extends React.Component {
       title = communityData.title;
       description = communityData.description;
       this.state.communityPage = true;
+      newTopicLink = "/community/" + communityData.id + "/topics/new";
     }
     topicList = this.state.splicedTopics.map((topic, index) => {
       topicLink = "/community/" + topic.community.id + "/topics/" + topic.id;
@@ -81,7 +83,7 @@ export default class Topiccomponent extends React.Component {
       <div>
         <div><h5>{title}</h5></div>
         <div><h6>{description}</h6></div>
-        <NewTopic warn={this.state.communityPage} />
+        <NewTopic warn={this.state.communityPage} link={newTopicLink}/>
         <div id="button-location"></div>
         <div id="scrollableDiv" style={{ height: 200, overflow: "auto" }}>
           <InfiniteScroll
@@ -110,8 +112,6 @@ function NewTopic(props) {
   }
 
   return (
-    <div>
-      <button>Hello</button>
-    </div>
+    <a className="waves-effect waves-light btn-small" href={props.link}>New Topic</a>
   );
 }
