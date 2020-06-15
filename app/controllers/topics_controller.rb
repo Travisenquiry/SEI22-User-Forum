@@ -14,8 +14,12 @@ class TopicsController < ApplicationController
 
   # GET /topics/new
   def new
-    @topic = Topic.new
-    @id = params[:id]
+    if Community.exists?(id: params[:id])
+      @topic = Topic.new
+      @id = params[:id]
+    else
+      redirect_to root_path
+    end
   end
 
   # GET /topics/1/edit
