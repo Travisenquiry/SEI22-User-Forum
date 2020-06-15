@@ -22,7 +22,7 @@ export default class Topiccomponent extends React.Component {
         <div id="topic-content">
           <h6>By: {postedUser[0].username}</h6>
           <div style={{ width: "500px" }}>
-            <img src={topicData.image_url} alt="" style={{ maxWidth: "100%", maxHeight: "50%" }}></img>
+            <img src={topicData.image_url} alt="" className="responsive-img" style={{ maxHeight: "50%"}}></img>
           </div>
           <p>{topicData.content}</p>
         </div>

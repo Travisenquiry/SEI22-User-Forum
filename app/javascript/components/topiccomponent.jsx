@@ -8,7 +8,8 @@ export default class Topiccomponent extends React.Component {
     this.state = {
       topics: [],
       splicedTopics: [],
-      topicsHasMore: true
+      topicsHasMore: true,
+      communityPage: false
     }
     let communityId = JSON.parse(document.getElementById('community-id').getAttribute('data'));
     if(communityId === null){
@@ -57,33 +58,31 @@ export default class Topiccomponent extends React.Component {
     let search = document.getElementById("community-id");
     let communityData = JSON.parse(search.getAttribute('data'));
     let title;
+    let description;
     let topicList;
     let topicLink;
 
     if(communityData === null){
       title = "Index";
-      topicList = this.state.splicedTopics.map((topic, index) => {
-        topicLink = "/community/" + topic.community.id + "/topics/" + topic.id;
-        return (
-          <div key={index}>
-            <a href={topicLink}>{topic.title}</a>
-          </div>
-        )
-      });
     }else {
       title = communityData.title;
-      topicList = this.state.splicedTopics.map((topic, index) => {
-        topicLink = "/community/" + topic.community.id + "/topics/" + topic.id;
-        return (
-          <div key={index}>
-            <a href={topicLink}>{topic.title}</a>
-          </div>
-        )
-      });
+      description = communityData.description;
+      this.state.communityPage = true;
     }
+    topicList = this.state.splicedTopics.map((topic, index) => {
+      topicLink = "/community/" + topic.community.id + "/topics/" + topic.id;
+      return (
+        <div key={index}>
+          <a href={topicLink}>{topic.title}</a>
+        </div>
+      )
+    });
     return(
       <div>
         <div><h5>{title}</h5></div>
+        <div><h6>{description}</h6></div>
+        <NewTopic warn={this.state.communityPage} />
+        <div id="button-location"></div>
         <div id="scrollableDiv" style={{ height: 200, overflow: "auto" }}>
           <InfiniteScroll
             dataLength={this.state.splicedTopics.length}
@@ -103,4 +102,16 @@ export default class Topiccomponent extends React.Component {
       </div>
     );
   }
+}
+
+function NewTopic(props) {
+  if (!props.warn) {
+    return null;
+  }
+
+  return (
+    <div>
+      <button>Hello</button>
+    </div>
+  );
 }

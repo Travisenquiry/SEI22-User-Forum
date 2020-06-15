@@ -15,29 +15,22 @@
   	<div class="container">
 	  	<nav>
 		    <div class="nav-wrapper">
-		      <a href="/" class="brand-logo center"> <i class="material-icons">hot_tub</i>Rabbit</a>
+		      <a href="/" class="brand-logo center"><i class="material-icons">hot_tub</i>Rabbit</a>
 		      <ul>
 		        <li class="left"><a href="#" data-target="slide-out" class="sidenav-trigger show-on-large"><i class="material-icons">menu</i></a></li>
-
 		      </ul>
 
 		    </div>
 		  </nav>
 		  <ul id="slide-out" class="sidenav">
 		    <li><div class="user-view">
-      <div class="background">
-        <img src="images/office.jpg">
-      </div>
-      <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-      <a href="#name"><span class="white-text name">John Doe</span></a>
-      <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-    </div></li>
-    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-    <li><a href="#!">Second Link</a></li>
-    <li><div class="divider"></div></li>
-    <li><a class="subheader">Subheader</a></li>
-    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-  </ul>
+      		<span><i class="material-icons">hot_tub</i> Welcome to Rabbit!</span>
+    		</div></li>
+    		<li><div class="divider"></div></li>
+    		<li><a href="/">Index</a></li>
+    		<li><a href="/community/new">Create new Community</a></li>
+    		<li><%= link_to 'Log out', destroy_user_session_url, method: :delete %></li>
+		  </ul>
 
 	    <%= yield %>
 	  </div>
