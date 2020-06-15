@@ -17,11 +17,10 @@ class OnepageController < ApplicationController
 
   def topic
     @current_page = "topic"
-    if Topic.exists?(id: params[:topic_id])
+    if Topic.exists?(id: params[:topic_id], community_id: params[:id])
       @topic = Topic.find(params[:topic_id])
       @community = Community.find(params[:id])
       @user_posted = User.where(id: @topic.user_id).select("id", "username")
-
       render 'index'
     else
       redirect_to "/"
