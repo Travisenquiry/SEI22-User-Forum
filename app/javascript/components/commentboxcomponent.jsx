@@ -48,7 +48,7 @@ export default class Commentboxcomponent extends React.Component {
             </textarea>
           </div>
           <div>
-            <button id="submit-comment">Submit Comment</button>
+            <button className="waves-effect waves-light btn" id="submit-comment">Submit Comment</button>
           </div>
         </form>
       </div>

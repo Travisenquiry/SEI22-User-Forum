@@ -11,7 +11,7 @@
     <%= javascript_include_tag 'applications' %>
   </head>
 
-  <body>
+  <body class="teal lighten-5">
   	<div class="container">
 	  	<nav>
 		    <div class="nav-wrapper">
@@ -24,13 +24,13 @@
 
 		    </div>
 		  </nav>
-		  <ul id="slide-out" class="sidenav">
-		    <li><div class="user-view">
-      		<span><i class="material-icons">hot_tub</i> Welcome to Rabbit!</span>
+		  <ul id="slide-out" class="sidenav teal lighten-5">
+		    <li><div class="user-view red lighten-2">
+      		<span style="color: white"><i class="material-icons">hot_tub</i> Welcome to Rabbit!</span>
     		</div></li>
     		<li><div class="divider"></div></li>
-    		<li><a href="/">Index</a></li>
-    		<li><a href="/community/new">Create new Community</a></li>
+    		<li><a href="/"><i class="material-icons">home</i>Index</a></li>
+    		<li><a href="/community/new"><i class="material-icons">create_new_folder</i>Create new Community</a></li>
     		<li><%= link_to 'Log out', destroy_user_session_url, method: :delete %></li>
 		  </ul>
 

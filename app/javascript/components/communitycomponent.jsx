@@ -44,8 +44,8 @@ export default class Communitycomponent extends React.Component {
     return(
       <div>
         <div><h5>Community List</h5></div>
-        <div ><input id="name-input" onKeyDown={()=>{ this.getCommunities() }} placeholder="Search" style={{ maxWidth: "60%" }}></input></div>
-        <div style={{ height: 100, overflow: "auto" }}>
+        <div className="input-field"><input id="name-input" type="search" onKeyDown={()=>{ this.getCommunities() }} placeholder="Search" style={{ maxWidth: "60%" }}></input></div>
+        <div style={{ height: 150, overflow: "auto" }}>
           {communities}
         </div>
       </div>

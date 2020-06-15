@@ -64,7 +64,7 @@ export default class Topiccomponent extends React.Component {
     let topicLink;
 
     if(communityData === null){
-      title = "Index";
+      title = "All topics";
     }else {
       title = communityData.title;
       description = communityData.description;
@@ -74,9 +74,7 @@ export default class Topiccomponent extends React.Component {
     topicList = this.state.splicedTopics.map((topic, index) => {
       topicLink = "/community/" + topic.community.id + "/topics/" + topic.id;
       return (
-        <div key={index}>
-          <a href={topicLink}>{topic.title}</a>
-        </div>
+        <a href={topicLink} className="collection-item" key={index}>{topic.title}</a>
       )
     });
     return(
@@ -85,12 +83,11 @@ export default class Topiccomponent extends React.Component {
         <div><h6>{description}</h6></div>
         <NewTopic warn={this.state.communityPage} link={newTopicLink}/>
         <div id="button-location"></div>
-        <div id="scrollableDiv" style={{ height: 200, overflow: "auto" }}>
+        <div id="scrollableDiv" style={{ height: 400, overflow: "auto" }}>
           <InfiniteScroll
             dataLength={this.state.splicedTopics.length}
             next={this.fetchMoreData}
             hasMore={this.state.topicsHasMore}
-            loader={<p>You may be loading or there is nothing here, go away!</p>}
             scrollableTarget="scrollableDiv"
             endMessage={
             <p>
@@ -98,7 +95,9 @@ export default class Topiccomponent extends React.Component {
             </p>
           }
           >
-            {topicList}
+            <div className="collection">
+              {topicList}
+            </div>
           </InfiniteScroll>
         </div>
       </div>
